@@ -1,0 +1,457 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+  --main-color: #243e36;
+  --seconde-color: #7ca982;
+  --white-color:#f1f7ed;
+  --black-color:#000000;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --shadow-lite-color:rgba(0, 0, 0, 0.2);
+}
+header {
+    width: 100vw;
+    height: 12vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+}
+nav{
+    width: 85%;
+    margin-inline: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.links{
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+}
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--seconde-color)
+}
+.logo span{
+  color: var(--main-color);
+}
+header nav ul {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+ 
+header nav a {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #333;
+    text-decoration: none;
+}
+header nav a:hover {
+    color: var(--seconde-color);
+}
+header .btn {
+  width: 120px;
+    background-color:  var(--seconde-color);
+    color: #fff;
+    border: none;
+    padding:0.8em;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+header .btn:hover {
+    background-color: var(--main-color);
+    color: #fff;
+    transform: scale(1.05);
+}
+button, a {
+  transition: all 0.3s ease;
+}
+.hero {
+    height:88vh;
+    width: 100vw;
+    background-image: url("/images/background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+}
+ .main{
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  gap:0.5rem;
+  padding: 0 3rem;
+  text-align: center;
+}
+.main h1{
+  font-size: 2.8rem;
+  text-transform: uppercase;
+  padding: 1rem 3rem;
+  color: #fff;
+}
+.main p{
+  font-size: 1.8rem;
+  color: var(--white-color);
+  padding: 1rem 3rem;
+}
+
+.button{
+  background-color:var(--seconde-color);
+  color: var(--white-color);
+  font-weight: 600;
+  border: none;
+  width: 200px;
+  padding: 0.8rem;
+  margin-left: 3rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-transform: uppercase;
+ margin-top: 2rem;
+}
+.button:hover{
+  background-color: var(--main-color);
+  transform: scale(1.05);
+}
+
+.Popular-blogs{
+  width: 85%;
+  margin:3rem auto;
+  padding:2rem 1rem;
+  text-align: center;
+}
+.blogs-container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.blogs-container .icon{
+  font-size: 3rem;
+  color: var(--main-color);
+  cursor: pointer;
+}
+.Popular-blogs h2{
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom:  3rem;
+  text-transform: uppercase;
+}
+.blogs-seen{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 2rem 0;
+  position: absolute;
+  background: #fff;
+}
+.blogs{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 1rem;
+}
+
+.blogs  .blog-card {
+  background: #fff;
+  border-radius: 4px;
+  width:30%;
+  box-shadow: 0 5px 5px var(--shadow-lite-color);
+  transition: all 0.3s ease;
+}
+.blogs .blog-card:hover{
+  transform: translateY(2px);
+  box-shadow: 0 5px 5px var(--shadow-color);
+}
+
+
+.blogs  .blog-card .blog-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blogs  .blog-card .blog-content {
+  padding: 15px;
+}
+
+.blogs  .blog-card .blog-content .blog-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #333;
+  text-align: left;
+}
+
+.blogs  .blog-card .blog-content .author {
+  font-size: 0.9rem;
+  color: #777;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+/* --------------------------------------------------------------------------*/
+.recent-blogs {
+  width: 85%;
+  margin: 6rem auto;
+}
+.recent-blogs h2{
+  font-size: 2.5rem;
+  color: #333;
+  margin: 3rem 0;
+  text-transform: uppercase;
+  text-align: left;
+}
+.recent-blogs .blog-card {
+  display: flex;
+  background-color: #fff;
+  box-shadow: 0 4px 6px var(--shadow-lite-color);
+  margin-bottom: 20px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.recent-blogs .blog-card img {
+  width: 300px;
+  object-fit: cover;
+}
+
+.recent-blogs .blog-card .blog-content {
+  padding: 2rem;
+}
+
+.recent-blogs .blog-card .blog-title{
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: var(--black-color);
+}
+
+.recent-blogs .blog-card .blog-content  .author {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.recent-blogs .blog-card .blog-content .author i {
+  margin-right: 5px;
+  color: var(--main-color);
+}
+
+.recent-blogs .blog-card  .blog-content p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #666;
+}
+
+.recent-blogs .blog-card  .blog-content .read-more {
+  display: inline-block;
+  background-color: var(--seconde-color);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border:none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.recent-blogs .blog-card  .blog-content .read-more:hover {
+  background-color: var(--main-color);
+  color: #fff;
+}
+
+
+footer {
+  background-color: #2b2b2b;
+  color: #fff;
+  padding: 2rem;
+  width: 100vw;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.footer-left {
+  width: 30%;
+}
+.footer-middle {
+  width: 30%;
+}
+.footer-right {
+  width: 30%;
+}
+
+.footer-left h2 {
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.footer-left .title {
+  color: var(--seconde-color);
+}
+
+.footer-left p {
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.footer-left .contact-info {
+  font-size: 0.9rem;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1rem;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.social-icons a:hover {
+  color: var(--seconde-color);
+}
+
+.footer-middle h3 {
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.footer-middle ul li {
+  margin-bottom: 1rem;
+  list-style: none;
+}
+
+.footer-middle ul li a {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.footer-middle ul li a:hover {
+  color: var(--seconde-color);
+}
+
+.footer-right h3 {
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.footer-right form input,
+.footer-right form textarea {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding:0.8rem;
+  border: none;
+  border-radius: 2px;
+  background-color: #333;
+  color: #fff;
+}
+
+.footer-right form input {
+  height:2rem;
+}
+
+.footer-right form button {
+  width: 100px;
+  background-color: var(--seconde-color);
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+
+/* Sign up form--------------------------*/
+/* .account-form {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px 100vw rgba(0, 0, 0, 0.65);
+  text-align: center;
+  padding: 2rem 3rem;
+  width: 500px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+.account-form .title h1{
+  font-size: 2.5rem;
+
+  color:var(--main-color);
+}
+
+.account-form .title p{
+  color: #777;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.input-container{
+  margin-bottom: 1rem;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+  font-size: 0.8rem;
+}
+
+.input-container input:focus {
+  border: 2px solid var(--seconde-color);
+}
+
+.btn {
+  background-color: var(--seconde-color);
+  color: #fff;
+  border: none;
+  padding: 0.7rem;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--main-color);
+}
+
+.link{
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  color: var(--main-color);
+}
+
+.link a{
+  color: var(--seconde-color);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.link :hover {
+  text-decoration: underline;
+}
