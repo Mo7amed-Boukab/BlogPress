@@ -1,20 +1,34 @@
 <?php
-    // include('index.php');
+   $error = "";
+  //  include('index.php');
+  include('db.php');
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
-      $username = $_POST['username'];
-      $password = password_hash($_POST['password'], PASSWORD_DEFAULT); 
+    $username = trim($_POST['username']);
+    $password = $_POST['password'];
+    if (!preg_match('/^[a-zA-Z0-9_]{2,20}$/', $username)) {
+        $error = "username invalid";
+    }
+    else if (strlen($password) < 8 || !preg_match('/[A-Z]/', $password) || !preg_match('/[0-9]/', $password)) {
+        $error = "Password invalid";
+      
+    }
+    else {
+          $pass_hashed = password_hash($password, PASSWORD_DEFAULT); 
 
-      $conn = mysqli_connect("localhost", "mohamed", "", "blogpress");
-      if (!$conn){
-          echo "Connection failed: " . mysqli_connect_error();
-      }
-      else{
-        $stmt = $conn->prepare("INSERT INTO author (username, password) VALUES(?,?)");
-        $stmt->bind_param("ss", $username, $password);
-        $stmt->execute();
-        $stmt->close();
-         echo "Account Created Successfully!";
-      }
+        
+
+            if ($conn) {
+                $stmt = $conn->prepare("INSERT INTO author (username, password) VALUES(?,?)");
+                $stmt->bind_param("ss", $username, $pass_hashed);
+                if ($stmt->execute()) {
+                header("Location: login.php");
+                exit(); 
+              }
+              $stmt->close();
+              
+            }    
+            
+         }
   }  
 ?> 
 <!DOCTYPE html>
@@ -30,6 +44,7 @@
         <div class="title">
           <h1 id="title">Create An Account</h1>
           <p id="message">Join us and start your journey as an author - for free!</p>
+          <p class="error"><?php echo $error ?></p>
         </div>
         <form action="signup.php" method="POST">
           <div class="input-container">

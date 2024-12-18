@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
-     <script src="scripts.js" defer></script>
+    
     <title>BlogPress</title>
 </head>
 <body>
@@ -35,13 +35,13 @@
           <button class="button">Explore our blogs</button>
         </div>
     </section>
-    <section class="Popular-blogs">
+    <!-- <section class="Popular-blogs">
       <h2>Trending blogs</h2>
       <div class="blogs-container">
         <i class="fa-solid fa-chevron-left icon"></i>
           <div class="blogs">
               <div class="blogs-seen">
-                <!-- blog 1 -->
+        
                 <div class="blog-card">
                     <div class="blog-image">
                         <img src="/images/img1.jpg" alt="blog Image">
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- blog 2 -->
+
                 <div class="blog-card">
                     <div class="blog-image">
                         <img src="/images/img3.jpg" alt="blog Image">
@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- blog 3 -->
+          
                 <div class="blog-card">
                     <div class="blog-image">
                         <img src="/images/img4.jpg" alt="blog Image">
@@ -87,7 +87,7 @@
                 </div>
             
             </div>
-                <!-- blog 4 -->
+      
                 <div class="blog-card">
                   <div class="blog-image">
                       <img src="/images/img2.jpg" alt="blog Image">
@@ -103,7 +103,7 @@
                       </div>
                   </div>
               </div>
-                <!-- blog 5-->
+      
                 <div class="blog-card">
                   <div class="blog-image">
                       <img src="/images/img1.jpg" alt="blog Image">
@@ -122,19 +122,19 @@
         </div>
         <i class="fa-solid fa-chevron-right icon"></i>
     </div>
-    </section>
+    </section> -->
 
-        <section class="recent-blogs">
-            <h2>Recent blogs</h2>
+        <section class="popular-blogs">
+            <h2>Populart blogs</h2>
             <div class="blog-card">
                 <img src="/images/img1.jpg" alt="blog Image">
                 <div class="blog-content">
                     <h3 class="blog-title">10 Tips to Stay Productive All Day</h3>
                     <div class="author">
+              
                         <span><i class="fa-solid fa-user"></i> mohamed boukab</span>
                         <span><i class="fa-solid fa-calendar"></i> Dec 15, 2024</span>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus expedita tempora qui sunt! Ipsum nihil unde obcaecati.</p>
                     <a href="#" class="read-more">Read More</a>
                 </div>
             </div>
@@ -146,7 +146,6 @@
                         <span><i class="fa-solid fa-user"></i> mohamed boukab</span>
                         <span><i class="fa-solid fa-calendar"></i> Dec 15, 2024</span>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus expedita tempora qui sunt! Ipsum nihil unde obcaecati.</p>
                     <a href="#" class="read-more">Read More</a>
                 </div>
             </div>
@@ -158,10 +157,25 @@
                         <span><i class="fa-solid fa-user"></i> mohamed boukab</span>
                         <span><i class="fa-solid fa-calendar"></i>Dec 15, 2024</span>
                     </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus expedita tempora qui sunt! Ipsum nihil unde obcaecati.</p>
                     <a href="#" class="read-more">Read More</a>
                 </div>
             </div>
+        </section>
+
+        <section>
+            <div class="postContainer">
+            <h1 class="postTitle">10 Tips to Stay Productive All Day</h1>
+            <p class="postText">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Aliquid eum culpa voluptatibus aliquam ratione sit quas magni placeat enim quibusdam, est officiis odit porro, quasi id et assumenda incidunt minima. Pariatur assumenda modi nobis quis impedit earum nihil consectetur, ex quisquam esse! Iusto maxime ea possimus non sit excepturi dolore molestias enim dolores saepe animi reprehenderit adipisci accusamus et id voluptatum deserunt asperiores, exercitationem repellat ducimus deleniti eligendi quis amet? Doloremque veniam vitae voluptatum ullam magnam asperiores veritatis dicta tenetur enim fugit dolores suscipit repudiandae temporibus officia dolorem culpa in soluta laborum ducimus nobis sed, odio aspernatur natus? Libero perferendis aut alias, aspernatur neque quod optio debitis corrupti odit vitae, nulla recusandae nihil enim? Nihil reprehenderit iste, quae obcaecati quisquam, explicabo officia corrupti, expedita officiis exercitationem veritatis. Laborum corporis corrupti minus doloribus odio enim, in pariatur itaque provident inventore recusandae nisi, dolore rem voluptatem autem ipsa mollitia rerum commodi optio! Explicabo saepe soluta aut tenetur nesciunt tempore, exercitationem reprehenderit assumenda at excepturi voluptate dicta eaque a recusandae alias impedit dolorem ipsum nam blanditiis unde architecto commodi deleniti voluptatibus odio. Esse nam amet nisi at tenetur ratione earum quis asperiores eligendi doloribus placeat, impedit quasi ipsa optio assumenda, dicta inventore veritatis fugiat porro vitae veniam, dolorem ipsum iusto blanditiis. Hic eveniet asperiores perspiciatis dolor, similique error voluptatum laudantium iusto exercitationem, explicabo nihil perferendis fugiat autem sequi eius sed deserunt laborum quae, ab praesentium maxime? Ipsum repudiandae dolores libero quas magnam eius, quis eum vero a id sit incidunt sapiente perferendis consequatur asperiores minus praesentium obcaecati ipsam necessitatibus rem maxime qui assumenda hic. Labore delectus vel esse odio ducimus reprehenderit, reiciendis, nemo ab laboriosam atque minima magni suscipit? Praesentium consequuntur autem dolores voluptatum adipisci fuga consequatur? Ut ducimus consequuntur laudantium ipsam a totam neque nulla corrupti. Voluptatem, expedita cumque? Impedit unde voluptatem adipisci non numquam blanditiis reiciendis molestias, ipsa nesciunt laudantium at eius similique est tempora beatae excepturi ex dolores sunt aliquam, quo porro facere, magnam consequuntur! Perferendis odio, possimus vitae mollitia nulla repellat debitis minima, molestias, velit sunt laborum! Assumenda ipsam totam molestiae maxime dolorum libero delectus aspernatur sed eius animi. Consequuntur nobis animi ab, maxime ducimus quaerat perferendis similique officiis tempora reiciendis? Officiis architecto qui, harum animi voluptatum magni veritatis soluta explicabo in. Officiis saepe adipisci aliquam, mollitia debitis tempora. Explicabo quibusdam voluptatem neque, velit fuga maiores quidem modi similique numquam dicta, autem deleniti, nostrum accusamus laudantium dignissimos alias ipsam dolorem ad quaerat provident magnam id? Aliquid, cupiditate, quae facere aspernatur assumenda illum maiores in harum a eligendi iusto accusamus praesentium reprehenderit? Est ex laboriosam nihil ducimus vero asperiores, eos vitae natus eum suscipit amet, maxime quae provident tenetur perspiciatis officia nostrum. Culpa odio officia adipisci.</p>
+            
+            <div class="buttons">
+                <button class="aime" >J'aime</button>
+                <button class="commentaire">Commenter</button>
+            </div>
+            <p class="likes" id="likeCount">0</p>
+            <div class="commentaires">
+              
+            </div>
+
         </section>
 
         <footer>
@@ -206,7 +220,12 @@
               </div>
           </div>
       </footer>
-    
+      <script>
+      let Login = document.getElementById("LoginBtn");
+          Login.addEventListener("click", () => {
+          window.location.href = "signup.php";      
+     });
+     </script>
   </body>
   </html>
 

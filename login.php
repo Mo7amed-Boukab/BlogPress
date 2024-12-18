@@ -1,38 +1,38 @@
 <?php
 $error = "";
+// include('index.php');
+  include('db.php');
   session_start(); 
-  include('index.php');
-  if(isset($_SESSION['user_id'])) {
-    header("Location: dashboard.php");
-    exit();
-  }
   if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
       $username = $_POST['username'];
       $password = $_POST['password']; 
 
-      $conn = mysqli_connect("localhost", "mohamed", "", "blogpress");
-      if (!$conn){
-          echo "Connection failed: " . mysqli_connect_error();
-      }
-      else{
-        $stmt = $conn->prepare("SELECT id, password FROM author WHERE username = ? ");
-        $stmt->bind_param("s", $username);
-        $stmt->execute();
-        $stmt->store_result();
-        $stmt->bind_result($user_id, $hashed_password);
-        $stmt->fetch();
+      if ($conn) {
 
-        if ($stmt -> num_rows > 0 && password_verify($password, $hashed_password)) {  
-          $_SESSION['user_id'] = $user_id;     
-          echo "Welcome ". $username;
-        }
-        else{
-          $error = "Invalid username or password";
-        }
-        $stmt->close();
-        
+          $stmt = $conn->prepare("SELECT id, password FROM author WHERE username = ? ");
+          $stmt->bind_param("s", $username);
+          $stmt->execute();
+          $stmt->store_result();
+          $stmt->bind_result($user_id, $hashed_password);
+          $stmt->fetch();
+    
+            if ($stmt -> num_rows > 0 && password_verify($password, $hashed_password)) {  
+              $_SESSION['user_id'] = $user_id;  
+              $_SESSION['username'] = $username;
+              if(isset($_SESSION['user_id'])) {
+                header("Location: dashboard.php");
+                
+                exit();
+              }
+            }
+            else{
+              $error = "username or password incorrect";
+            }
+            $stmt->close();
+            
       }
-    }   
+    
+  }  
 ?>
 <!DOCTYPE html>
 <html lang="en">

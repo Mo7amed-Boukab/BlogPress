@@ -121,7 +121,7 @@ button, a {
   font-size: 0.9rem;
   cursor: pointer;
   text-transform: uppercase;
- margin-top: 2rem;
+  margin-top: 2rem;
 }
 .button:hover{
   background-color: var(--main-color);
@@ -207,18 +207,18 @@ button, a {
   gap: 10px;
 }
 /* --------------------------------------------------------------------------*/
-.recent-blogs {
+.popular-blogs {
   width: 85%;
   margin: 6rem auto;
 }
-.recent-blogs h2{
+.popular-blogs h2{
   font-size: 2.5rem;
   color: #333;
   margin: 3rem 0;
   text-transform: uppercase;
   text-align: left;
 }
-.recent-blogs .blog-card {
+.popular-blogs .blog-card {
   display: flex;
   background-color: #fff;
   box-shadow: 0 4px 6px var(--shadow-lite-color);
@@ -227,39 +227,39 @@ button, a {
   overflow: hidden;
 }
 
-.recent-blogs .blog-card img {
+.popular-blogs .blog-card img {
   width: 300px;
   object-fit: cover;
 }
 
-.recent-blogs .blog-card .blog-content {
+.popular-blogs .blog-card .blog-content {
   padding: 2rem;
 }
 
-.recent-blogs .blog-card .blog-title{
+.popular-blogs .blog-card .blog-title{
   font-size: 1.4rem;
   margin-bottom: 10px;
   color: var(--black-color);
 }
 
-.recent-blogs .blog-card .blog-content  .author {
+.popular-blogs .blog-card .blog-content  .author {
   font-size: 0.9rem;
   color: #555;
   margin-bottom: 10px;
 }
 
-.recent-blogs .blog-card .blog-content .author i {
+.popular-blogs .blog-card .blog-content .author i {
   margin-right: 5px;
   color: var(--main-color);
 }
 
-.recent-blogs .blog-card  .blog-content p {
+.popular-blogs .blog-card  .blog-content p {
   font-size: 1rem;
   margin-bottom: 15px;
   color: #666;
 }
 
-.recent-blogs .blog-card  .blog-content .read-more {
+.popular-blogs .blog-card  .blog-content .read-more {
   display: inline-block;
   background-color: var(--seconde-color);
   color: #fff;
@@ -271,7 +271,7 @@ button, a {
   transition: all 0.3s ease;
 }
 
-.recent-blogs .blog-card  .blog-content .read-more:hover {
+.popular-blogs .blog-card  .blog-content .read-more:hover {
   background-color: var(--main-color);
   color: #fff;
 }
@@ -380,10 +380,10 @@ footer {
 
 
 /* Sign up form--------------------------*/
-/* .account-form {
+.account-form {
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 20px 100vw rgba(0, 0, 0, 0.65);
+  border-radius: 4px;
+  box-shadow: 0 0 20px 100vw rgba(0, 0, 0, 0.5);
   text-align: center;
   padding: 2rem 3rem;
   width: 500px;
@@ -391,7 +391,22 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-} */
+  transition: all 0.5s ease;
+}
+@keyframes formAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  80% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 .account-form .title h1{
   font-size: 2.5rem;
@@ -406,9 +421,8 @@ footer {
   margin-top: 1rem;
   margin-bottom: 2rem;
 }
-
-.input-container{
-  margin-bottom: 1rem;
+.error{
+  color: crimson !important;
 }
 
 .input-container input {
@@ -452,6 +466,190 @@ footer {
   font-weight: 600;
 }
 
-.link :hover {
+.link:hover {
   text-decoration: underline;
+}
+
+/* Dashboard--------------------------*/
+.dashboardTitle{
+  text-align: center;
+  color: #fff;
+  font-size: 2.5rem;
+  margin: 1rem 0;
+}
+.container{
+  display: flex;
+}
+.sidebar {
+  width: 15%;
+  background-color: var(--main-color);
+  color: #fff;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.buttons{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 2.5rem;
+}
+.PostBtn {
+  width: 180px;
+  height: 45px;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--seconde-color);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.PostBtn:hover{
+  background: #fff;
+  color: var(--main-color);
+}
+.content-container{
+  width: 80%;
+  margin: 0 auto;
+}
+.contentTitle{
+  margin: 2.5rem 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--main-color);
+  width: 100%;
+  padding-bottom: 2rem;
+  border-bottom: 5px solid var(--main-color);
+}
+.user{
+  color: var(--seconde-color);
+}
+.tableTitle {
+  margin: 2.5rem 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--main-color);
+}
+
+table {
+  width: 100%;
+  box-shadow: 0 0 5px var(--shadow-lite-color);
+}
+th {
+  background-color: #f2f2f2;
+  color: var(--main-color);
+}
+th, td {
+  padding: 0.8rem;
+  text-align: center;
+  border-bottom: 2px solid #ddd;
+  border-left: 2px solid #ddd;
+}
+.btns{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+.btnTable{
+  width: 70px;
+  padding: 0.4rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--seconde-color);
+  color: #f2f2f2;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.btnTable:hover{
+  background-color: var(--main-color);
+}
+
+
+.formAddPostContainer {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 20px 100vw rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.formPostTitle{
+  color: var(--main-color);
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  outline: none;
+}
+input:focus,textarea:focus {
+  border: 2px solid var(--seconde-color);
+}
+select {
+  cursor: pointer;
+}
+
+.addBtn {
+  width: 140px;
+  padding: 0.7rem 1rem;
+  background-color: var(--main-color);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.addBtn:hover {
+  background-color: var(--seconde-color)
+}
+
+.postContainer {
+  width: 70%;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.postTitle {
+  font-size:2.2rem;
+  padding: 1rem 0;
+  text-align: center;
+  color: var(--main-color);
+}
+
+.postText {
+  padding: 1rem ;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+
+.like-counter {
+  color: var(--main-color);
 }
