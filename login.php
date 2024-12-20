@@ -1,8 +1,8 @@
 <?php
 $error = "";
-// include('index.php');
+session_start(); 
+
   include('db.php');
-  session_start(); 
   if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
       $username = $_POST['username'];
       $password = $_POST['password']; 
@@ -21,15 +21,13 @@ $error = "";
               $_SESSION['username'] = $username;
               if(isset($_SESSION['user_id'])) {
                 header("Location: dashboard.php");
-                
                 exit();
               }
             }
             else{
               $error = "username or password incorrect";
             }
-            $stmt->close();
-            
+            $stmt->close();      
       }
     
   }  
@@ -45,7 +43,7 @@ $error = "";
 <body>
 <div class="account-form" id="accountForm">
       <div class="title">
-        <h1 id="title">Login</h1>
+        <h1 id="titleForm">Login</h1>
         <p id="message">Welcome back! Please login to your account</p>
         <p class="error"><?php echo $error ?></p>
       </div>

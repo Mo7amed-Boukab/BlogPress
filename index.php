@@ -35,152 +35,150 @@
           <button class="button">Explore our blogs</button>
         </div>
     </section>
-    <!-- <section class="Popular-blogs">
-      <h2>Trending blogs</h2>
+    <section class="Popular-blogs">
+      <h2>Popular blogs</h2>
       <div class="blogs-container">
-        <i class="fa-solid fa-chevron-left icon"></i>
           <div class="blogs">
-              <div class="blogs-seen">
         
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="/images/img1.jpg" alt="blog Image">
+                        <img src="./images/img1.jpg" alt="blog Image">
                     </div>
                     <div class="blog-content">
                         <div class="blog-title">10 Tips to Stay Productive All Day</div>
-                        <div class="author">
-                            <i>By Mohamed boukab</i>
-                            <span>&#8226;</span>
-                            <i>Dec 15, 2024</i>
-                        </div>
                     </div>
                 </div>
 
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="/images/img3.jpg" alt="blog Image">
+                        <img src="./images/img3.jpg" alt="blog Image">
                     </div>
                     <div class="blog-content">
                       <div class="blog-title">5 Habits of Highly Successful People</div>
-                        <div class="author">
-                          <i>By Mohamed boukab</i>
-                          <span>&#8226;</span>
-                          <i>Dec 15, 2024</i>
-                        </div>
                     </div>
                 </div>
           
                 <div class="blog-card">
                     <div class="blog-image">
-                        <img src="/images/img4.jpg" alt="blog Image">
+                        <img src="./images/img4.jpg" alt="blog Image">
                     </div>
                     <div class="blog-content">
-
                         <div class="blog-title">Save Time, Achieve Your Goals!</div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+    </section>
+  
 
-                        <div class="author">
-                          <i>By Mohamed boukab</i>
-                          <span>&#8226;</span>
-                          <i>Dec 15, 2024</i>
+    <section class="Popular-blogs">
+            <h2>All Blogs</h2>
+            <?php 
+            include('db.php');
+
+            if ($conn) {
+
+                $stmt = $conn->prepare("SELECT * FROM articles AS art INNER JOIN author AS auth ON art.author_id = auth.id;");
+                
+                if ($stmt) {
+                    $stmt->execute();
+                    $result = $stmt->get_result();
+            
+                    if ($result->num_rows > 0) {
+                        while ($data = $result->fetch_assoc()) {
+                            echo "<img src='" . htmlspecialchars($data['image']) . "' alt='Image du post' class='post-image'> ";
+                            echo "<h1 class='post-title'>" . htmlspecialchars($data['title']) . "</h1> ";
+                            echo "<div class='post-desc'>
+                                      <span class='author'>Par <strong>" . htmlspecialchars($data['username']) . "</strong></span>
+                                      <span class='date'>Publié " . htmlspecialchars($data['created_at']) . "</span>
+                                  </div>";
+                        }
+                    } else {
+                        echo "<p>Aucun article trouvé.</p>";
+                    }
+            
+                    $stmt->close();
+                } else {
+                    echo "<p>Erreur lors de la préparation de la requête.</p>";
+                }
+            
+                $conn->close();
+            } else {
+                echo "<p>Erreur de connexion à la base de données.</p>";
+            }
+            
+            ?>
+            <div class="post-container">
+                    <div class="post-header">
+                        <img src="./images/img2.jpg" alt="Image du post" class="post-image">
+                        <h1 class="post-title">10 Tips to Stay Productive All Day</h1>
+                        <div class="post-desc">
+                            <span class="author">Par <strong>John Doe</strong></span>
+                            <span class="date">Publié le 20 décembre 2024</span>
                         </div>
                     </div>
-                </div>
-            
-            </div>
-      
-                <div class="blog-card">
-                  <div class="blog-image">
-                      <img src="/images/img2.jpg" alt="blog Image">
-                  </div>
-                  <div class="blog-content">
-
-                      <div class="blog-title">Save Time, Achieve Your Goals!</div>
-
-                      <div class="author">
-                        <i>By Mohamed boukab</i>
-                        <span>&#8226;</span>
-                        <i>Dec 15, 2024</i>
-                      </div>
-                  </div>
-              </div>
-      
-                <div class="blog-card">
-                  <div class="blog-image">
-                      <img src="/images/img1.jpg" alt="blog Image">
-                  </div>
-                  <div class="blog-content">
-
-                      <div class="blog-title">Save Time, Achieve Your Goals!</div>
-
-                      <div class="author">
-                        <i>By Mohamed boukab</i>
-                        <span>&#8226;</span>
-                        <i>Dec 15, 2024</i>
-                      </div>
-                  </div>
-              </div>
-        </div>
-        <i class="fa-solid fa-chevron-right icon"></i>
-    </div>
-    </section> -->
-
-        <section class="popular-blogs">
-            <h2>Populart blogs</h2>
-            <div class="blog-card">
-                <img src="/images/img1.jpg" alt="blog Image">
-                <div class="blog-content">
-                    <h3 class="blog-title">10 Tips to Stay Productive All Day</h3>
-                    <div class="author">
-              
-                        <span><i class="fa-solid fa-user"></i> mohamed boukab</span>
-                        <span><i class="fa-solid fa-calendar"></i> Dec 15, 2024</span>
+                    
+                    <div class="post-body">
+                        <p class="post-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid eum culpa voluptatibus aliquam ratione sit quas magni placeat enim quibusdam, est officiis odit porro, quasi id et assumenda incidunt minima Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione consequuntur ad cupiditate cumque blanditiis, fugiat nobis porro, obcaecati, reprehenderit mollitia provident ipsum non dolores et magnam. Nesciunt accusamus perspiciatis nam repellendus hic ratione reiciendis dignissimos, autem, cum explicabo reprehenderit deleniti aliquid similique totam numquam, deserunt nihil eos consectetur iste dolorem. Nobis, consectetur. Sed placeat cumque aut esse qui asperiores! Incidunt aut iste at aliquam odit labore ex consequuntur maiores ullam dolores voluptatem iusto odio nihil eos sapiente, nulla nam qui pariatur adipisci, vero eligendi deleniti necessitatibus tempora. Culpa est rerum error velit, quo illo deleniti, maiores nobis, atque fuga qui!
+                        </p>
                     </div>
-                    <a href="#" class="read-more">Read More</a>
-                </div>
-            </div>
-            <div class="blog-card">
-                <img src="/images/img4.jpg" alt="blog Image">
-                <div class="blog-content">
-                    <h3 class="blog-title">5 Habits of Highly Successful People</h3>
-                    <div class="author">
-                        <span><i class="fa-solid fa-user"></i> mohamed boukab</span>
-                        <span><i class="fa-solid fa-calendar"></i> Dec 15, 2024</span>
+
+                    <div class="post-footer">
+                        <div class="like_comt">
+                            <span class="like-icon">
+                                <i class="fa fa-thumbs-up"></i> 0 J'aime
+                            </span>
+                            <span class="comment-icon">
+                                <i class="fa fa-comment"></i> Commenter
+                            </span>
+                        </div>
                     </div>
-                    <a href="#" class="read-more">Read More</a>
-                </div>
-            </div>
-            <div class="blog-card">
-                <img src="/images/img3.jpg" alt="blog Image">
-                <div class="blog-content">
-                    <h3 class="blog-title">Save Time, Achieve Your Goals!</h3>
-                    <div class="author">
-                        <span><i class="fa-solid fa-user"></i> mohamed boukab</span>
-                        <span><i class="fa-solid fa-calendar"></i>Dec 15, 2024</span>
+
+                    <div class="comments">
+                      
                     </div>
-                    <a href="#" class="read-more">Read More</a>
-                </div>
-            </div>
+             </div>
+
+            <div class="post-container">
+                    <div class="post-header">
+                        <img src="./images/img3.jpg" alt="Image du post" class="post-image">
+                        <h1 class="post-title">10 Tips to Stay Productive All Day</h1>
+                        <div class="post-desc">
+                            <span class="author">Par <strong>John Doe</strong></span>
+                            <span class="date">Publié le 20 décembre 2024</span>
+                        </div>
+                    </div>
+                    
+                    <div class="post-body">
+                        <p class="post-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid eum culpa voluptatibus aliquam ratione sit quas magni placeat enim quibusdam, est officiis odit porro, quasi id et assumenda incidunt minima Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione consequuntur ad cupiditate cumque blanditiis, fugiat nobis porro, obcaecati, reprehenderit mollitia provident ipsum non dolores et magnam. Nesciunt accusamus perspiciatis nam repellendus hic ratione reiciendis dignissimos, autem, cum explicabo reprehenderit deleniti aliquid similique totam numquam, deserunt nihil eos consectetur iste dolorem. Nobis, consectetur. Sed placeat cumque aut esse qui asperiores! Incidunt aut iste at aliquam odit labore ex consequuntur maiores ullam dolores voluptatem iusto odio nihil eos sapiente, nulla nam qui pariatur adipisci, vero eligendi deleniti necessitatibus tempora. Culpa est rerum error velit, quo illo deleniti, maiores nobis, atque fuga qui!
+                        </p>
+                    </div>
+
+                    <div class="post-footer">
+                        <div class="like_comt">
+                            <span class="like-icon">
+                                <i class="fa fa-thumbs-up"></i> 0 J'aime
+                            </span>
+                            <span class="comment-icon">
+                                <i class="fa fa-comment"></i> Commenter
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="comments">
+                      
+                    </div>
+             </div>
         </section>
 
-        <section>
-            <div class="postContainer">
-            <h1 class="postTitle">10 Tips to Stay Productive All Day</h1>
-            <p class="postText">Lorem ipsum dolor sit amet, consectetur adipisicing elit.Aliquid eum culpa voluptatibus aliquam ratione sit quas magni placeat enim quibusdam, est officiis odit porro, quasi id et assumenda incidunt minima. Pariatur assumenda modi nobis quis impedit earum nihil consectetur, ex quisquam esse! Iusto maxime ea possimus non sit excepturi dolore molestias enim dolores saepe animi reprehenderit adipisci accusamus et id voluptatum deserunt asperiores, exercitationem repellat ducimus deleniti eligendi quis amet? Doloremque veniam vitae voluptatum ullam magnam asperiores veritatis dicta tenetur enim fugit dolores suscipit repudiandae temporibus officia dolorem culpa in soluta laborum ducimus nobis sed, odio aspernatur natus? Libero perferendis aut alias, aspernatur neque quod optio debitis corrupti odit vitae, nulla recusandae nihil enim? Nihil reprehenderit iste, quae obcaecati quisquam, explicabo officia corrupti, expedita officiis exercitationem veritatis. Laborum corporis corrupti minus doloribus odio enim, in pariatur itaque provident inventore recusandae nisi, dolore rem voluptatem autem ipsa mollitia rerum commodi optio! Explicabo saepe soluta aut tenetur nesciunt tempore, exercitationem reprehenderit assumenda at excepturi voluptate dicta eaque a recusandae alias impedit dolorem ipsum nam blanditiis unde architecto commodi deleniti voluptatibus odio. Esse nam amet nisi at tenetur ratione earum quis asperiores eligendi doloribus placeat, impedit quasi ipsa optio assumenda, dicta inventore veritatis fugiat porro vitae veniam, dolorem ipsum iusto blanditiis. Hic eveniet asperiores perspiciatis dolor, similique error voluptatum laudantium iusto exercitationem, explicabo nihil perferendis fugiat autem sequi eius sed deserunt laborum quae, ab praesentium maxime? Ipsum repudiandae dolores libero quas magnam eius, quis eum vero a id sit incidunt sapiente perferendis consequatur asperiores minus praesentium obcaecati ipsam necessitatibus rem maxime qui assumenda hic. Labore delectus vel esse odio ducimus reprehenderit, reiciendis, nemo ab laboriosam atque minima magni suscipit? Praesentium consequuntur autem dolores voluptatum adipisci fuga consequatur? Ut ducimus consequuntur laudantium ipsam a totam neque nulla corrupti. Voluptatem, expedita cumque? Impedit unde voluptatem adipisci non numquam blanditiis reiciendis molestias, ipsa nesciunt laudantium at eius similique est tempora beatae excepturi ex dolores sunt aliquam, quo porro facere, magnam consequuntur! Perferendis odio, possimus vitae mollitia nulla repellat debitis minima, molestias, velit sunt laborum! Assumenda ipsam totam molestiae maxime dolorum libero delectus aspernatur sed eius animi. Consequuntur nobis animi ab, maxime ducimus quaerat perferendis similique officiis tempora reiciendis? Officiis architecto qui, harum animi voluptatum magni veritatis soluta explicabo in. Officiis saepe adipisci aliquam, mollitia debitis tempora. Explicabo quibusdam voluptatem neque, velit fuga maiores quidem modi similique numquam dicta, autem deleniti, nostrum accusamus laudantium dignissimos alias ipsam dolorem ad quaerat provident magnam id? Aliquid, cupiditate, quae facere aspernatur assumenda illum maiores in harum a eligendi iusto accusamus praesentium reprehenderit? Est ex laboriosam nihil ducimus vero asperiores, eos vitae natus eum suscipit amet, maxime quae provident tenetur perspiciatis officia nostrum. Culpa odio officia adipisci.</p>
-            
-            <div class="buttons">
-                <button class="aime" >J'aime</button>
-                <button class="commentaire">Commenter</button>
-            </div>
-            <p class="likes" id="likeCount">0</p>
-            <div class="commentaires">
-              
-            </div>
-
-        </section>
+      
 
         <footer>
           <div class="footer-container">
-              <!-- Left Section -->
               <div class="footer-left">
                   <h2><span class="title">Blog </span>Press</h2>
                   <p>
@@ -198,7 +196,6 @@
                   </div>
               </div>
               
-              <!-- Middle Section -->
               <div class="footer-middle">
                   <h3> links</h3>
                   <ul>
@@ -208,8 +205,7 @@
                     <li><a href="#">Terms and conditions</a></li>
                   </ul>
               </div>
-  
-              <!-- Right Section -->
+
               <div class="footer-right">
                   <h3>Contact Us</h3>
                   <form>

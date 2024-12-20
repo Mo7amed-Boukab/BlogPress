@@ -1,7 +1,7 @@
 <?php
    $error = "";
-  //  include('index.php');
-  include('db.php');
+   session_start();   
+  require('db.php');
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
     $password = $_POST['password'];
@@ -9,13 +9,11 @@
         $error = "username invalid";
     }
     else if (strlen($password) < 8 || !preg_match('/[A-Z]/', $password) || !preg_match('/[0-9]/', $password)) {
-        $error = "Password invalid";
-      
+        $error = "Password invalid";  
     }
     else {
           $pass_hashed = password_hash($password, PASSWORD_DEFAULT); 
 
-        
 
             if ($conn) {
                 $stmt = $conn->prepare("INSERT INTO author (username, password) VALUES(?,?)");
@@ -42,7 +40,7 @@
 <body>
 <div class="account-form" id="accountForm">
         <div class="title">
-          <h1 id="title">Create An Account</h1>
+          <h1 id="titleForm">Create An Account</h1>
           <p id="message">Join us and start your journey as an author - for free!</p>
           <p class="error"><?php echo $error ?></p>
         </div>
