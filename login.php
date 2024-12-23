@@ -1,7 +1,6 @@
 <?php
 $error = "";
 session_start(); 
-
   include('db.php');
   if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
       $username = $_POST['username'];
@@ -49,10 +48,10 @@ session_start();
       </div>
       <form action="login.php" method="POST">
         <div class="input-container">
-          <input type="text" name="username" placeholder="Username" required>
+          <input type="text" name="username"  placeholder="Username" required>
         </div>
         <div class="input-container">
-          <input type="password" name="password" placeholder="Password" required>
+          <input type="password" name="password"  placeholder="Password" required>
         </div>
         <button type="submit" class="btn" id="LoginBtnForm" name= "login">Login</button>
       </form>

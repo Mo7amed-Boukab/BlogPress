@@ -1,7 +1,7 @@
 <?php
    $error = "";
    session_start();   
-  require('db.php');
+  include('db.php');
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
     $password = $_POST['password'];
@@ -49,7 +49,7 @@
             <input type="text" name="username" placeholder="Username" required>
           </div>
           <div class="input-container">
-            <input type="password" name="password" placeholder="Password" required>
+            <input type="password"  name="password" placeholder="Password" required>
           </div>
           <button type="submit" class="btn"  name= "signup">Create Account</button>
         </form>
