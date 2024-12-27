@@ -22,13 +22,9 @@ CREATE TABLE articles (
     FOREIGN KEY (author_id) REFERENCES author(id),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
--- SELECT * FROM articles as art INNER JOIN author as auth on art.author_id = auth.id;
+
 ALTER TABLE articles 
 ADD COLUMN image VARCHAR(255) AFTER content;
-SELECT * FROM articles;
-INSERT INTO articles (title, content, author_id) VALUES("10 Tips to Stay Productive All Day","Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores obcaecati provident quidem ratione recusandae illum, nostrum a cum accusamus impedit quaerat ab amet possimus natus perspiciatis animi in nobis eius veritatis harum! Nemo aliquam, quidem fugiat deleniti mollitia eius dolorum sequi natus soluta possimus! Deserunt cum facere minima in sed.",14);
-INSERT INTO articles (title, content, author_id) VALUES("5 Habits of Highly Successful People","Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores obcaecati provident quidem ratione recusandae illum, nostrum a cum accusamus impedit quaerat ab amet possimus natus perspiciatis animi in nobis eius veritatis harum! Nemo aliquam, quidem fugiat deleniti mollitia eius dolorum sequi natus soluta possimus! Deserunt cum facere minima in sed.",14);
-INSERT INTO articles (title, content, author_id) VALUES("Save Time, Achieve Your Goals!","Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolores obcaecati provident quidem ratione recusandae illum, nostrum a cum accusamus impedit quaerat ab amet possimus natus perspiciatis animi in nobis eius veritatis harum! Nemo aliquam, quidem fugiat deleniti mollitia eius dolorum sequi natus soluta possimus! Deserunt cum facere minima in sed.",14);
 
 CREATE TABLE comments (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -40,6 +36,7 @@ CREATE TABLE comments (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+
 CREATE TABLE likes (
     id INT AUTO_INCREMENT PRIMARY KEY,
     visitor_id INT NOT NULL,
@@ -47,6 +44,44 @@ CREATE TABLE likes (
     FOREIGN KEY (visitor_id) REFERENCES visitors(id),
     FOREIGN KEY (article_id) REFERENCES articles(id)
 );
+-- SELECT v.username, c.content, c.created_at   FROM comments AS c 
+--               JOIN visitors AS v ON c.visitor_id = v.id 
+--               WHERE c.article_id = ?
+--               ORDER BY c.created_at DESC;
 
+-- SELECT * FROM articles as art INNER JOIN author as auth on art.author_id = auth.id;
 -- SELECT * FROM likes AS lk INNER JOIN artickes AS art ON art.id = lk.article_id;
 -- SELECT * FROM comments AS com INNER JOIN articles AS art ON com.article_id = art.id;
+SELECT art.id, art.title, art.views, art.likes, COUNT(com.id) AS total_comments    
+        FROM 
+            articles AS art
+        LEFT JOIN 
+            comments AS com ON art.id = com.article_id
+        GROUP BY 
+            art.id;
+-- SELECT auth.username, COUNT(*) AS total_articles 
+-- FROM articles AS ar INNER JOIN author AS auth ON ar.author_id = auth.id
+-- GROUP BY auth.username;
+
+-- SELECT ar.title, ar.views FROM articles AS ar
+-- ORDER BY ar.views DESC;
+
+-- SELECT ar.views, ar.likes FROM articles AS ar
+-- ORDER BY ar.views DESC, ar.likes DESC;
+
+SELECT v.username, c.content, c.created_at 
+                            FROM comments AS c 
+                            INNER JOIN visitors AS v ON c.visitor_id = v.id 
+                            WHERE c.article_id = 2
+                            ORDER BY c.created_at DESC;
+
+SELECT id, title, image, likes FROM articles ORDER BY likes DESC LIMIT 3;
+SELECT a.id, a.title, a.content, a.image, a.likes, a.views, a.created_at, au.username 
+            FROM articles AS a 
+            INNER JOIN author AS au ON a.author_id = au.id;
+    
+SELECT v.username, c.content, c.created_at 
+            FROM comments AS c 
+            INNER JOIN visitors AS v ON c.visitor_id = v.id 
+            WHERE c.article_id =3
+            ORDER BY c.created_at DESC    

@@ -1,8 +1,15 @@
 <?php
-   $error = "";
-   session_start();   
-  require('db.php');
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+session_start();
+include('db.php');
+
+if (isset($_SESSION['user_id'])) {
+    header("Location: dashboard.php");
+    exit();
+}
+
+$error = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['username']);
     $password = $_POST['password'];
     if (!preg_match('/^[a-zA-Z0-9_]{2,20}$/', $username)) {
@@ -12,23 +19,25 @@
         $error = "Password invalid";  
     }
     else {
-          $pass_hashed = password_hash($password, PASSWORD_DEFAULT); 
-
-
-            if ($conn) {
-                $stmt = $conn->prepare("INSERT INTO author (username, password) VALUES(?,?)");
-                $stmt->bind_param("ss", $username, $pass_hashed);
-                if ($stmt->execute()) {
+        $stmt = $conn->prepare("SELECT id FROM author WHERE username = ?");
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        if ($stmt->get_result()->num_rows > 0) {
+            $error = "username already exists";
+        } else {
+            $pass_hashed = password_hash($password, PASSWORD_DEFAULT);
+            $stmt = $conn->prepare("INSERT INTO author (username, password) VALUES(?, ?)");
+            $stmt->bind_param("ss", $username, $pass_hashed);
+            if ($stmt->execute()) {
                 header("Location: login.php");
-                exit(); 
-              }
-              $stmt->close();
-              
-            }    
-            
-         }
-  }  
-?> 
+                exit();
+            } 
+        }
+        $stmt->close();
+    }
+}
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,27 +46,29 @@
   <link rel="stylesheet" href="styles.css">
   <title>Document</title>
 </head>
-<body>
-<div class="account-form" id="accountForm">
-        <div class="title">
-          <h1 id="titleForm">Create An Account</h1>
-          <p id="message">Join us and start your journey as an author - for free!</p>
-          <p class="error"><?php echo $error ?></p>
-        </div>
-        <form action="signup.php" method="POST">
-          <div class="input-container">
-            <input type="text" name="username" placeholder="Username" required>
-          </div>
-          <div class="input-container">
-            <input type="password" name="password" placeholder="Password" required>
-          </div>
-          <button type="submit" class="btn"  name= "signup">Create Account</button>
-        </form>
-        <p class="link">
-          Already Have An Account? <a href="login.php">Login</a>
-        </p>
-</div>
+    <body>
+          <div class="account-form" id="accountForm">
 
+                <div class="title">
+                  <h1 id="titleForm">Create An Account</h1>
+                  <p id="message">Join us and start your journey as an author - for free!</p>
+                  <p class="error"><?php echo $error ?></p>
+                </div>
 
-</body>
+                <form action="signup.php" method="POST">
+                      <div class="input-container">
+                        <input type="text" name="username" placeholder="Username" required>
+                      </div>
+                      <div class="input-container">
+                        <input type="password"  name="password" placeholder="Password" required>
+                      </div>
+                      <button type="submit" class="btn"  name= "signup">Create Account</button>
+                </form>
+
+                <p class="link">
+                  Already Have An Account? <a href="login.php">Login</a>
+                </p>
+
+          </div>
+    </body>
 </html>

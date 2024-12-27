@@ -1,13 +1,12 @@
 <?php 
-    $servername = "localhost";
-    $username = "mohamed";
-    $password = "";
-    $dbname = "blogpress";
+    $host = 'localhost'; 
+    $dbname = 'blogpress'; 
+    $username = 'root'; 
+    $password = ''; 
 
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    $conn = new mysqli($host, $username, $password, $dbname);
 
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    } 
-
+    if ($conn->connect_error) {
+        die("Erreur de connexion : " . $conn->connect_error);
+    }
 ?>
